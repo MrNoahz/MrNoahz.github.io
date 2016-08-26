@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* { margin: 0; padding: 0; }
+
+::-moz-selection { color: black; background: lightgray; }
+
+::selection { color: black; background: lightgray; }
+
+html, body { height: 100%; }
+
+body, section, h1, h2, h3, h4 { font-family: Arial, sans-serif; }
+
+body, section, h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, Helvetica Neue, sans-serif; }
+
+a { transition: all .3s ease-in-out; }
+a:hover, a:focus { text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 { font-style: normal; text-transform: uppercase; letter-spacing: 3px; font-weight: 300; }
+
+.center { text-align: center; }
+
+.small-nav {
+	display: block;
+	background: rgba(1, 1, 1, 0.2);
+	width: 100%;
+	z-index: 999;
+	list-style: none;
+	padding: 10px 0;
+	-webkit-animation-delay: 0.2s;
+	        animation-delay: 0.2s;
+
+}
+
+.small-nav ul {
+	list-style: none;
+	display: table;
+	margin: 0 auto;
+	border-left: 1px solid rgba(192, 192, 192, 0.35);
+	border-right: 1px solid rgba(192, 192, 192, 0.35);
+	position: relative;
+}
+
+
+
+@media screen and (min-width: 450px) {
+	.small-nav ul:before, .small-nav ul:after {
+		content: '';
+		display: block;
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		margin-top: -4px;
+		height: 5px;
+		border-top: 1px solid rgba(192, 192, 192, 0.35);
+		border-bottom: 1px solid rgba(192, 192, 192, 0.35);
+	}
+
+	.small-nav ul:before {
+		left: 100%;
+		margin-left: 1px;
+	}
+
+	.small-nav ul:after {
+		right: 100%;
+		margin-right: 1px;
+	}
+}
+
+.small-nav ul li {
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 0 22px;
+	font-size: 1.2em;
+	letter-spacing: 0.01em;
+}
+
+.small-nav ul li a {
+	color: rgba(255, 255, 255, 0.7);
+	text-decoration: none;
+}
+
+@media only screen and (max-width: 750px) {
+	.small-nav {
+		display: block;
+	}
+	.small-nav ul li {
+		padding: 0 13px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.small-nav ul li {
+		padding: 0 9px;
+	}
+}
+
+#home {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background: #696969;
+	background: url("../pic/bg.jpg") no-repeat center center scroll;
+	background-attachment: fixed;
+	background-size: cover;
+}	
+
+.name {
+
+	/* Have to make the position absolute or else animate.css screws things up */
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	margin: auto;
+	height: 110px; /* This magically centers the text */
+}
+
+.name h1 {
+	letter-spacing: 0.6em;
+	font-size: 2.1em;
+	font-weight: 300;
+	background: rgba(1, 1, 1, 0.1);
+	color: white;
+	display: inline-block;
+	padding: 0.3em;
+	-webkit-animation-delay: 0.7s;
+	        animation-delay: 0.7s;
+}
+
+.name h2 {
+	opacity: 0.8;
+	-webkit-animation-delay: 1s;
+	        animation-delay: 1s;
+	color: #cccccc;
+	font-size: 1.2em;
+	letter-spacing: 0.4em;
+	margin-top: 0.6em;
+}
+
+.scrollDown {
+	position: absolute;
+	bottom: 3em;
+	width: 100%;
+	-webkit-animation-delay: 1.3s;
+	        animation-delay: 1.3s;
+	text-align: center;
+	color: #D3D3D3; 
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	display: block;
+}
+
+.down {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-width: 1px;
+	-webkit-transform: rotate(135deg);
+	        transform: rotate(135deg);
+}
+
+#about {
+	padding: 100px 0 140px;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #F5F5F5;
+}
+
+#about h1 {
+	font-size: 1.9em;
+	color: #54585A;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.strike {
+	background: #D3D3D3;
+	width: 30px;
+	height: 1px;
+	margin: 1em auto;
+}
+
+#about p {
+	color: #272727;
+	margin: 0 auto;
+	letter-spacing: 0.04em;
+	font-size: 1.4em;
+	line-height: 1.7em;
+	font-weight: 300;
+}
+
+#about .highlight {
+	color: #AE2727;
+}
+
+#work {
+	padding: 2em 0 2.4em;
+	color: #9c9c9c;
+	background: #363636;
+}
+
+#work h1 {
+	text-align: center;
+	font-size: 2em;
+	margin: 0 0 2em;
+}
+
+#work h2 {
+	padding: 1em;
+	margin: 0;
+	font-size: 1.7em;
+	background: #3a3a3a;
+}
+
+#work .left h2 {
+	background: #333333;
+}
+
+#work .skilllist {
+	padding: 0.8em;
+	background: #353535;
+}
+
+#work .skilllist .item {
+	width: 100%;
+	font-size: 1.2em;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	text-align: left;
+	margin-bottom: 1em;
+	color: #C1C1C1;
+}
+
+#work .left {
+	margin-bottom: 2em;
+}
+
+#work .itemlist .item {
+	display: block;
+	padding: 0.3em 1.6em;
+	transition: 250ms ease-in-out;
+	color: inherit;
+	position: relative;
+	overflow: hidden;
+}
+
+#work .itemlist .item:nth-child(2n) {
+	background: #343434;
+}
+
+#work .itemlist .item:hover {
+	background: #3a3a3a;
+}
+
+#work .itemlist h4 {
+	letter-spacing: 2px;
+	font-weight: 300;
+	padding: 15px;
+	background: transparent;
+}
+
+#footer {
+	padding: 5em 0 0;
+	background: #ECECEC;
+	text-align: center;
+	font-weight: 300;
+	border-top: 1px solid #D3D3D3;
+}
+
+#footer h3 {
+	color: #808080;
+	margin-bottom: 2em;
+}
+
+#footer ul {
+	list-style: none;
+
+}
+
+#footer ul li {
+	display: inline-block;
+	min-width: 1em;
+	min-height: 4em;
+	margin: 2em 3em;
+	padding: 0.5em;
+	position: relative;
+	color: #A7A7A7;
+}
+
+#footer ul li a {
+	color: inherit;
+	transition: all .3s ease-in-out;
+}
+
+#footer ul li a i {
+	font-size: 3em;
+}
+
+#footer ul li a p {
+	position: absolute;
+	font-weight: 300;
+	letter-spacing: 1px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	margin-top: 1em;
+	color: inherit;/*#ECECEC*/
+	transition: all .2s ease-in-out;
+}
+
+/*#footer ul li:hover a p {
+	color: inherit;
+}*/
+
+#footer ul .twitter:hover a {
+	color: #32CCFE;
+}
+
+#footer ul .email:hover a {
+	color: #27ae60; 
+}
+
+#footer ul .codepen:hover a{
+	color: #000;
+}
+
+#footer ul .codepen p {
+	margin-left: -3px;
+}
+
+#footer ul .github:hover a {
+	color: #4183c4;
+}
+
+#footer .license {
+	color: #bdbdbd;
+	font-size: 1em;
+	margin-top: 3em;
+}
+
+#footer .license a {
+	color: inherit;
+	border-bottom: 1px dotted #bdbdbd;
+}
+
+#footer .license a:hover{
+	color: #6F6F6F;
+	border-bottom: 1px solid #6F6F6F;
+}
+
+/* For some reason hidden and hide are in bootstrap*/
+.noshow {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible!important;
+}
+
+.red {
+	background: red;
+}

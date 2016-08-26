@@ -1,0 +1,180 @@
+html, *, *:before, *:after {
+	box-sizing: border-box;
+}
+
+* { margin: 0; padding: 0; }
+
+html, body { 
+	height: 100%; 
+}
+
+.section {
+	height: 100vh;
+	width : 100%;
+
+	position: relative;
+
+	display        : flex;
+	justify-content: center;
+	align-items    : center;
+	flex-direction : column;
+
+	color: #fff;
+
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.section .head {
+	position: absolute;
+	top     : 2rem;
+
+	display        : flex;
+	justify-content: center;
+	align-items    : center;
+	flex-direction : column;
+
+	background: inherit;
+
+	z-index: 2;
+}
+
+.section .head:before, .section .head:after {
+	content: '';
+	width  : 1.1rem;
+	height : 1.1rem;
+
+	display: block;
+
+	background: inherit;
+
+	border       : 0.3rem solid #fff;
+	border-radius: 50%;
+
+	margin: 0.5rem;
+}
+
+.section .head:before {
+	margin-top: 0;
+}
+
+.section .head:after {
+	margin-bottom: 0;
+}
+
+.section .head h1 {
+	font-size  : 2rem;
+	font-weight: 300;
+}
+
+.section .head h2 {
+	text-align    : center;
+	font-size     : 3.5rem;
+	letter-spacing: 0.3rem;
+
+	margin-top: -0.5rem;
+}
+
+.section:after {
+	content : '';
+	position: absolute;
+	top     : 0;
+	left: 50%;
+	border-left: 1px solid #fff;
+	height: 100%;
+	z-index: 0;
+}
+
+.section .content {
+	z-index: 2;
+}
+
+#title {
+	background : #2ecc71;
+
+	transition: transform 800ms ease-in-out;
+}
+
+#title:after {
+	display: none;
+}
+
+#title h1 {
+	font-size  : 3rem;
+	font-weight: 300;
+}
+
+#title h2 {
+	font-size  : 2rem;
+	font-weight: 300;
+}
+
+#title a {
+	color          : #fff;
+	text-decoration: none;
+	border-bottom  : 2px dotted #fff;
+}
+
+#title a:hover {
+	border-bottom: 2px solid #fff;
+}
+
+#title p {
+	margin-top: 3rem;
+	font-size : 1.5rem;
+	text-align: center;
+}
+
+#title label {
+	margin-top: 4rem;
+
+	border-top   : 1rem   solid transparent;
+	border-bottom: 1rem   solid transparent;
+	border-left  : 1.5rem solid #fff;
+
+	width : 1rem;
+	height: 1rem;
+
+	cursor: pointer;
+
+	display: block;
+
+	transition: 200ms ease-in-out;
+}
+
+#title label:hover {
+	border-left: 1.5rem solid rgba(255, 255, 255, 0.4);
+}
+
+#year1969 {
+	background: #e74c3c;
+
+	transition: 800ms ease-in-out;
+}
+
+#year1971 {
+	background: #3498db;
+}
+
+#year1990 {
+	background: #1abc9c;
+}
+
+#year1993 {
+	background: #9b59b6;
+}
+
+#year1995 {
+	background: #e67e22;
+}
+
+#play1969:checked ~ #title {
+	transform: translateY(-100vh);
+}
+
+#play1969:checked ~ #year1969 {
+	transform: translateY(-100vh);
+}
+
+#play1969 {
+	display: none;
+}

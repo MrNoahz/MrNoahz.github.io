@@ -1,0 +1,213 @@
+a {
+	text-decoration: none;
+	background-color: transparent;
+}
+
+nav {
+	height: 64px;
+	box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+}
+
+.nav-wrapper {
+	margin-left: 25%;
+    margin-right: 25%;
+}
+
+.brand-logo {
+	display: inline-block;
+	font-size: 2.1rem;
+	letter-spacing: 7px;
+	font-weight: 100;
+	font-style: normal;
+}
+
+nav ul a {
+	font-size: 1.2rem;
+	color: #fff;
+	letter-spacing: 2px;
+	display: block;
+	font-weight: 300;
+}
+
+#banner {
+	min-height: 632px;
+	max-height: 864px;
+	position: relative;
+	padding-top: 1rem;
+	padding-bottom: 0;
+}
+
+h1 {
+	line-height: 6rem;
+}
+
+h2 {
+	font-size: 3.56rem;
+	line-height: 3.916rem;
+	margin: 1.78rem 0 1.424rem 0;
+}
+
+#typed {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	transform: translateY(50%);
+    -webkit-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+	color: #fff;
+	font-size: 6.0em;
+	font-weight: 100;
+}
+
+#about {
+	padding-top: 4rem;
+}
+
+#work {
+	background: rgb(247, 247, 247);
+}
+
+#profile {
+	padding: 0;
+}
+
+#profile div {
+	background-image: url("img/bg.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 150px;
+}
+
+#profiletitle {
+	color: white;
+	position: absolute;
+	left: 46px;
+	top: 98px;
+	font-size: 1.4rem;
+}
+
+#profilepic {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	left: 5px;
+	top: 109px;
+	border-radius: 30px;
+}
+
+#contact {
+	color: white;
+}
+
+#contact h4 {
+	margin-bottom: 0;
+}
+
+.sociallist {
+	text-align: center;
+}
+
+.sociallist ul {
+	position: relative;
+	display: inline-block;
+	margin: 0;
+}
+
+.sociallist li {
+	display: inline-block;
+}
+
+.sociallist li a {
+	display: inline-block;
+	width: 2.5em;
+	height: 2.5em;
+	font-size: 1.85em;
+	line-height: 2.5em;
+	text-align: center;
+	color: white;
+	transition: 0.35s ease-in-out;
+}
+
+.sociallist li a:hover {
+	color: #81d4fa;
+}
+
+.footer-copyright {
+	font-weight: 300;
+	overflow: hidden;
+	height: 50px;
+	line-height: 50px;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.section {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.container {
+	padding: 0 1.5rem;
+	margin: 0 auto;
+	max-width: 1280px;
+	width: 90%;
+}
+
+.center {
+	text-align: center;
+}
+
+.text_h2 {
+	font-weight: 100;
+	margin-bottom: 4%;
+	line-height: 4.5rem;
+}
+
+.text_b {
+	color: #2196F3;
+}
+
+.span_h2 {
+	font-weight: 300;
+}
+
+@media only screen and (min-width: 993px) {
+	.container {
+		width: 70%;
+	}
+}
+
+@media only screen and (min-width: 601px) {
+	.container {
+		width: 85%;
+	}
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
+
+
+.fa {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

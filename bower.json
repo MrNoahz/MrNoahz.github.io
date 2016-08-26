@@ -1,0 +1,23 @@
+{
+  "name": "MrNoahz.github.io",
+  "description": "A personal website for some guy.",
+  "main": "index.html",
+  "authors": [
+    "@MrNoahz"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "font-awesome": "^4.6.3",
+    "animate.css": "^3.5.2"
+  }
+}
