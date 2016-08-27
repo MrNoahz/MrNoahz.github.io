@@ -64,14 +64,12 @@ $(function() {
 });
 
 function elementIsFocused(elem) {
-	var docViewTop    = $(window).scrollTop();
-	var docViewBottom = docViewTop + $(window).height();
-
 	var elemTop    = $(elem).offset().top;
 	var elemBottom = elemTop + $(elem).height();
 
-	return (elemTop <= $('.nav-panel').offset().top && elemBottom >= $('.nav-panel').offset().top + $('.nav-panel').height());
-	//return (elemTop <= docViewBottom + ($(window).height() * 0.8) && elemTop >= docViewTop - ($(window).height() * 0.2));
+	var centernav = $('.nav-panel').offset().top + ($('.nav-panel').height() / 2);
+
+	return (elemTop <= centernav && elemBottom >= centernav);
 }
 
 function scrollListen() {
