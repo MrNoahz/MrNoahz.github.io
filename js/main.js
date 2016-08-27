@@ -1,64 +1,51 @@
-var scrolling = false;
-var curPage   = 0;
-var pages;
-var stY;
-
 var curSlider = 0; 
 var sliding   = false;
 var slider;
 
-var pageids = [
-	'home',
-	'about',
-	'work',
-	'contact'
+var pageIds = [
+	"home",
+	"about",
+	"work",
+	"contact"	
 ];
 
 $(function() {
-	pages = $('section');
 	slider = $('#work .item');
 
  	/* Smooth Scrolling */
-    $('a[href*="#"]:not([href="#"]').click(function() {
-    	var targetid = $(this).attr('href');
+    $(function() {
+	  $('a[href*="#"]:not([href="#"])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      
+	      if (target.length) {
+	        $('html, body').animate({
+	          scrollTop: [target.offset().top, "swing"]
+	        }, 900,
+	        function() {
+	        	scrollListen();
+	        });
 
-    	curPage = pageids.indexOf(targetid.substring(1));
-    	scrollTo($(targetid));
+	        return false;
+	      }
+	    }
+	  });
+	});
 
-    	return false;
-    });
-
-    $('#nav_home').trigger('click');
-
-    $(document).on("mousewheel DOMMouseScroll", function(e) {
-    	if(!scrolling) {
-    		if(e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0)
-    			goUp();
-    		else
-    			goDown();
-    	}
-    });
-
-    $(document).on("touchstart", function(event) {
-    	stY = event.originalEvent.touches[0].screenY;
+    $(document).on('mousewheel DOMMouseScroll', function(e) {
+    	scrollListen();
     });
 
     $(document).on("touchmove", function(event) {
-    	event.preventDefault();
-
-    	var curY = event.originalEvent.touches[0].screenY;
-
-    	if(stY - curY > 50)
-    		goDown();
-    	else if(curY - stY > 50)
-    		goUp();
+    	scrollListen();
     });
 
     $(document).on("keydown", function(event) {
-    	if(event.keyCode == 40)
-    		goDown();
-    	else if(event.keyCode == 38)
-    		goUp();
+    	var k = event.keyCode;
+
+    	if(k == 40 || k == 38)
+    		scrollListen();
     });
 
     $('#work .left').click(function(event) {
@@ -72,11 +59,55 @@ $(function() {
     		goRight();
     	}
     });
+
+    scrollListen();
 });
 
-//TODO: Merge these two functions together.
-//TODO: Use animation end listener
+function elementIsFocused(elem) {
+	var docViewTop    = $(window).scrollTop();
+	var docViewBottom = docViewTop + $(window).height();
 
+	var elemTop    = $(elem).offset().top;
+	var elemBottom = elemTop + $(elem).height();
+
+	return (elemTop <= docViewBottom + ($(window).height() * 0.8) && elemTop >= docViewTop - ($(window).height() * 0.2));
+}
+
+function scrollListen() {
+	for(var i = 0; i < pageIds.length; i++) {
+		if(elementIsFocused('#' + pageIds[i])) {
+			console.log(i);
+			scrollThings(i);
+			break;
+		}
+	}
+}
+
+function scrollThings(curPage) {
+	if(curPage != 0) {
+		$('nav').removeClass('slideInDown').addClass('slideOutUp');
+		$('.nav-panel').removeClass('hidden');
+    } else {
+		$('nav').removeClass('slideOutUp').addClass('slideInDown');
+		$('.nav-panel').addClass('hidden');
+    }
+
+    if(curPage == 3 || curPage == 2)
+       	$('.nav-panel').addClass('white');
+    else
+       	$('.nav-panel').removeClass('white');
+        
+
+    if(curPage == 1 || curPage == 3)
+    	$('.hamburgermenu').addClass('black');
+    else
+    	$('.hamburgermenu').removeClass('black');
+
+    $('.nav-panel ul li').removeClass('active');
+    $('.nav-panel ul li:nth-child(' + (curPage + 1) + ')').addClass('active');
+}
+
+//TODO: Use animation end listener
 function goLeft() {
 	if(curSlider > 0) {
 		curSlider--;
@@ -120,56 +151,36 @@ function slideSlider(direction) {
 		});
 }
 
-function goUp() {
-	if(curPage > 0 && !scrolling) {
-		curPage--;
-		page(curPage);
-	}
-}
+// function scrollTo(target) {
+//     if (target.length) {
+//         if(curPage != 0) {
+// 			$('nav').removeClass('slideInDown').addClass('slideOutUp');
+// 			$('.nav-panel').removeClass('hidden');
+//         } else {
+// 			$('nav').removeClass('slideOutUp').addClass('slideInDown');
+// 			$('.nav-panel').addClass('hidden');
+//         }
 
-function goDown() {
-	if((curPage < pages.length - 1) && !scrolling) {
-		curPage++;
-		page(curPage);
-	}
-}
-
-function page(page) {
-	scrollTo($('#' + pageids[page]));
-
-	scrolling = true;
-}
-
-function scrollTo(target) {
-    if (target.length) {
-        if(curPage != 0) {
-			$('nav').removeClass('slideInDown').addClass('slideOutUp');
-			$('.nav-panel').removeClass('hidden');
-        } else {
-			$('nav').removeClass('slideOutUp').addClass('slideInDown');
-			$('.nav-panel').addClass('hidden');
-        }
-
-        if(curPage == 3 || curPage == 2)
-        	$('.nav-panel').addClass('white');
-        else
-        	$('.nav-panel').removeClass('white');
+//         if(curPage == 3 || curPage == 2)
+//         	$('.nav-panel').addClass('white');
+//         else
+//         	$('.nav-panel').removeClass('white');
         
 
-        if(curPage == 1 || curPage == 3)
-        	$('.hamburgermenu').addClass('black');
-        else
-        	$('.hamburgermenu').removeClass('black');
+//         if(curPage == 1 || curPage == 3)
+//         	$('.hamburgermenu').addClass('black');
+//         else
+//         	$('.hamburgermenu').removeClass('black');
 
-        $('.nav-panel ul li').removeClass('active');
-        $('.nav-panel ul li:nth-child(' + (curPage + 1) + ')').addClass('active');
+//         $('.nav-panel ul li').removeClass('active');
+//         $('.nav-panel ul li:nth-child(' + (curPage + 1) + ')').addClass('active');
 
-	    $('html,body').animate(
-	        { scrollTop: [target.offset().top, "swing"] }, //Change to transform; much better performance
-	        900, 
-	        function() { 
-	            scrolling = false;
-	        }
-	    );
-	}
-}
+// 	    $('html,body').animate(
+// 	        { scrollTop: [target.offset().top, "swing"] }, //Change to transform; much better performance
+// 	        900, 
+// 	        function() { 
+// 	            scrolling = false;
+// 	        }
+// 	    );
+// 	}
+// }

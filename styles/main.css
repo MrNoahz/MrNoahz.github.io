@@ -20,8 +20,6 @@ body {
 	background           : url('../res/bg.jpg') no-repeat;
   	background-size      : cover;
   	background-attachment: fixed;
-
-  	overflow: hidden;
 }
 
 a                { transition: all .3s ease-in-out; }
@@ -254,7 +252,7 @@ nav ul li a {
 	-webkit-transform-origin: 50% 50%;
 	        transform-origin: 50% 50%;
 
-	transition: border-color 300ms ease-in-out, opacity 400ms ease-in-out;
+	transition: border-color 200ms ease-in-out, opacity 300ms ease-in-out;
 }
 
 .nav-panel .scroll-btn:hover {

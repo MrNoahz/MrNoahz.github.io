@@ -65,7 +65,7 @@
 
 				<div class="row">
 					<p class="column animated fadeInLeft">
-						Hi, I'm <span class="highlight">Noah</span>. I began to learn programming <span class="highlight">3 years ago</span>. I began as a <span class="highlight">popular mod creator</span> in the Minecraft Pocket Edition community. Soon afterwards, I progressed to <span class="highlight">Android</span> and <span class="highlight">Java</span> applications. <span class="highlight">Arduino</span> and <span class="highlight">microcontrollers</span> came next, a fun adventure.
+						Hi, I'm <span class="highlight">Noah</span>. I began to learn programming <span class="highlight"><span id="years">3</span> years ago</span>. I began as a <span class="highlight">popular mod creator</span> in the Minecraft Pocket Edition community. Soon afterwards, I progressed to <span class="highlight">Android</span> and <span class="highlight">Java</span> applications. <span class="highlight">Arduino</span> and <span class="highlight">microcontrollers</span> came next, a fun adventure.
 						<br>
 						<br>
 						And now, I am exploring <span class="highlight">full stack web development</span>, hoping to one day become a professional developer.</p>
@@ -108,5 +108,9 @@
 		<footer>
 			<p class="license">2016 © Noah Bresler. Released under the <a href="http://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">GNU General Public License v3.0</a></p>
 		</footer>
+
+		<script type="text/javascript">
+			document.getElementById('years').innerHTML = new Date().getFullYear() - 2013;
+		</script>
 	</body>
 </html>
