@@ -70,13 +70,13 @@ function elementIsFocused(elem) {
 	var elemTop    = $(elem).offset().top;
 	var elemBottom = elemTop + $(elem).height();
 
-	return (elemTop <= docViewBottom + ($(window).height() * 0.8) && elemTop >= docViewTop - ($(window).height() * 0.2));
+	return (elemTop <= $('.nav-panel').offset().top && elemBottom >= $('.nav-panel').offset().top + $('.nav-panel').height());
+	//return (elemTop <= docViewBottom + ($(window).height() * 0.8) && elemTop >= docViewTop - ($(window).height() * 0.2));
 }
 
 function scrollListen() {
 	for(var i = 0; i < pageIds.length; i++) {
 		if(elementIsFocused('#' + pageIds[i])) {
-			console.log(i);
 			scrollThings(i);
 			break;
 		}
